@@ -1,23 +1,19 @@
-<%-- 
-    Document   : modificar
-    Created on : 19-abr-2018, 10:59:57
-    Author     : ALUMNO
---%>
-<%@page import="controladores.RubrosControlador"%>
+
+<%@page import="controladores.PacientesControlador"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
-<%@page import="modelos.Rubros"%>
+<%@page import="modelos.Pacientes"%>
 <%@page import="org.json.simple.JSONObject"%>
 <%@page import="java.sql.ResultSet"%>
 
 <%
-    int id_rubro=Integer.parseInt(request.getParameter("id_rubro"));
-    String nombre_rubro=request.getParameter("nombre_rubro");
+    int ci_paciente=Integer.parseInt(request.getParameter("ci_paciente"));
+    String nombre_paciente=request.getParameter("nombre_paciente");
     String tipo="error";
     String mensaje="datos no modificados";
-    Rubros rubro=new Rubros();
-    rubro.setId_rubro(id_rubro);
-    rubro.setNombre_rubro(nombre_rubro);
-    if(RubrosControlador.modificar(rubro)){
+    Pacientes paciente=new Pacientes();
+    paciente.setCi_paciente(ci_paciente);
+    paciente.setNombre_paciente(nombre_paciente);
+    if(PacientesControlador.modificar(paciente)){
         tipo="success";
         mensaje="Datos modificados";
        

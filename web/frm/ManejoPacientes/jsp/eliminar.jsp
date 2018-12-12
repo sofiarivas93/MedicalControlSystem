@@ -1,26 +1,20 @@
-<%-- 
-    Document   : modificar
-    Created on : 19-abr-2018, 10:59:57
-    Author     : ALUMNO
---%>
-<%@page import="controladores.RubrosControlador"%>
+
+<%@page import="controladores.PacientesControlador"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
-<%@page import="modelos.Rubros"%>
+<%@page import="modelos.Pacientes"%>
 <%@page import="org.json.simple.JSONObject"%>
 <%@page import="java.sql.ResultSet"%>
 
 <%
-    int id_rubro=Integer.parseInt(request.getParameter("id_rubro"));
-    String nombre_rubro=request.getParameter("nombre_rubro");
+    int ci_paciente=Integer.parseInt(request.getParameter("ci_paciente"));
     String tipo="error";
     String mensaje="Datos no eliminados";
-    Rubros rubro=new Rubros();
-    rubro.setId_rubro(id_rubro);
+    Pacientes paciente=new Pacientes();
+    paciente.setCi_paciente(ci_paciente);
     
-    if(RubrosControlador.eliminar(rubro)){
+    if(PacientesControlador.eliminar(paciente)){
         tipo="success";
         mensaje="Datos eliminados";
-       
     }
     JSONObject obj=new JSONObject();
     obj.put("tipo",tipo);

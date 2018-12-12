@@ -64,5 +64,25 @@ public class PacientesControlador {
         }
         return valor;
     }
+    public static Pacientes buscarCI(int ci_paciente){
+        Pacientes paciente=new Pacientes();
+        if(Conexion.conectar()){
+            String sql="select*from pacientes where ci_paciente='" + ci_paciente+"'";
+            try{
+                ResultSet rs=Conexion.getSt().executeQuery(sql);
+                if(rs.next()){
+                    paciente.setCi_paciente(rs.getInt("ci_paciente"));
+                    paciente.setNombre_paciente(rs.getString("nombre_paciente"));
+                }else{
+                    return null;
+                }
+            }catch(SQLException ex){
+                System.out.println("Error: "+ex);
+            }
+        }
+        return paciente;
+    }
+   
+
 
 }

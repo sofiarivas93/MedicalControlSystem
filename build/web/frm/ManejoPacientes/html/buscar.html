@@ -20,11 +20,11 @@ and open the template in the editor.
                     <input type="hidden" id="bpagina" name="bpagina" value="1" />
                     <div class="row">
                         <div class="col-md-1">
-                            <span>Nombre</span>
+                            <span>CI</span>
                         </div>
                         <div class="col-md-9">
-                            <input id="bnombre_rubro" name="bnombre_rubro" type="text"
-                                   class="form-control input-sm" placeholder="Nombre">
+                            <input id="bci_paciente" name="bci_paciente" type="text"
+                                   class="form-control input-sm" placeholder="CI">
                         </div>
                         <div class="col-md-2">
                             <button id="botonBuscar" type="button" class="btn btn-primary btn-sm">Buscar</button>
@@ -36,7 +36,7 @@ and open the template in the editor.
                     <table class="table table-bordered table-striped table-hover">
                         <thead>
                             <tr>
-                                <th>Id</th>
+                                <th>CI</th>
                                 <th>Nombre</th>
                             </tr>
                         </thead>
@@ -57,18 +57,18 @@ and open the template in the editor.
         </div>
         
         <script src="js/jquery.min.js" type="text/javascript"></script>
-        <script src="js/bootstrap.min.js" type="text/javascript"></script>
-        <script src="../../../js/funciones.js" type="text/javascript"></script>
-        <script src="js/funciones.js" type="text/javascript"></script>
+        <script src="js/bootstrap.min.js" type="text/javascript"></script>        
+        <script src="../js/funciones.js" type="text/javascript"></script>
+        <script src="/../../../js/funciones.js" type="text/javascript"></script>
         <script>
-            buscarNombreRubro();
-            $("#bnombre_rubro").focus();
-            siguienteCampo("#bnombre_rubro", "#botonBuscar",false);
+            buscarCIPaciente();
+            $("#bci_paciente").focus();
+            siguienteCampo("#bci_paciente", "#botonBuscar",false);
             $("#botonBuscar").on("click",function(){
                 $("#contenidoBusqueda").html("");
                 $("#bpagina").val("1");
-                buscarNombreRubro();
-                $("#bnombre_rubro").focus();
+                buscarCIPaciente();
+                $("#bci_paciente").focus();
             });
             $("#anterior").on("click", function(){
                 $("#contenidoBusqueda").html("");
@@ -76,13 +76,13 @@ and open the template in the editor.
                 if(pag>1){
                     $("#bpagina").val(pag-1);
                 }
-                buscarNombreRubro();
+                buscarCIPaciente();
             });
             $("#siguiente").on("click",function(){
                 $("#contenidoBusqueda").html("");
                 var pag=parseInt($("#bpagina").val());
                 $("bpagina").val(pag+1);
-                buscarNombreRubro();
+                buscarNombrePaciente();
             });
             $("#botonSalirBuscar").on('click',function(){
                 $("#buscar").fadeOut("slow");

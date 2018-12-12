@@ -5,7 +5,6 @@
  */
 
 function agregarPaciente() {
-alert("Hola");
     var datosFormulario = $("#formPrograma").serialize();
     $.ajax({
         type: 'POST',
@@ -70,7 +69,7 @@ function buscarCIPaciente() {
     //alert(datosFormulario);
     $.ajax({
         type: 'POST',
-        url: '../jsp/buscarIdPaciente.jsp',
+        url: '../jsp/buscarCI.jsp',
         data: datosFormulario,
         dataType: 'json',
         beforeSend: function (objeto) {
@@ -78,8 +77,8 @@ function buscarCIPaciente() {
         },
         success: function (json) {
             $("#mensajes").html(json.mensaje);
-            $("#ci_paciente").val(json.id_rubro);
-            $("#nombre_paciente").val(json.nombre_rubro);
+            $("#ci_paciente").val(json.ci_paciente);
+            $("#nombre_paciente").val(json.nombre_paciente);
             
            
         },
